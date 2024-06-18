@@ -1,0 +1,22 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 1em;
+}
+
+.heading {
+    text-align: center;
+}
+
+.language-button {
+    position: absolute;
+    right: 1em;
+}
+
+.search-bar {
+    width: -webkit-fill-available;
+}
+
+.chart-table {
+    display: grid;
+    grid-template: 1fr / 2fr 2fr 1fr;
+}

@@ -1,7 +1,9 @@
 import ReactDOM from "react-dom/client";
+import { Body } from "./body";
+import "./style.css";
 
 function App() {
-  return <h1>Rick and Morty</h1>;
+  return <Body />;
 }
 
 const container = document.getElementById("root");
