@@ -4,7 +4,6 @@ import { SEATING_CHART } from "./seatingObject";
 export function Body() {
   const searchRef = useRef(null);
   const [typeahead, setTypeahead] = useState("");
-  const [isEng, setEnglish] = useState(true);
 
   const partyIDs = SEATING_CHART.filter((person) =>
     [person.firstName, person.lastName]
@@ -17,21 +16,8 @@ export function Body() {
     (person) => partyIDs.findIndex((partyID) => person.partyID === partyID) >= 0
   );
 
-  const handleScroll = (ref) => {
-    const element = ref.current;
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 50,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <div>
-      <button className="language-button" onClick={() => setEnglish(!isEng)}>
-        {isEng ? "中文" : "Eng"}
-      </button>
       <h1 className="heading">SEATING</h1>
       <h2 className="heading chinese-seat">座</h2>
       <div ref={searchRef}>
@@ -46,7 +32,7 @@ export function Body() {
             console.log(event.target.value);
             setTypeahead(String(event.target.value).toUpperCase());
           }}
-          placeholder={isEng ? "Search" : "搜尋"}
+          placeholder="Search"
         ></input>
       </div>
       <div className="chart-table list-container">

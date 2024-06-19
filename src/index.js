@@ -1,5 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { Body } from "./body";
+import "./fonts/ZenKakuGothicNew-Light.ttf";
+import "./fonts/ZenKakuGothicNew-Medium.ttf";
 import "./style.css";
 
 function App() {
