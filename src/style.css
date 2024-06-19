@@ -1,7 +1,7 @@
 body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 1em 3em 1em 3em;
-    word-wrap: break-word;
+    margin: 1em 0 1em 0;
+    word-wrap: normal;
     font-weight: 100;
 }
 
@@ -28,6 +28,10 @@ body {
     top: 1.5em;
 }
 
+.list-container {
+    margin: 0 4em 0 4em;
+}
+
 .search-bar {
     width: -webkit-fill-available;
     margin-bottom: 2em;
@@ -35,7 +39,7 @@ body {
 
 .chart-table {
     display: grid;
-    grid-template: 1fr / 2fr 3fr 1fr;
+    grid-template: 1fr / 5fr 5fr 1fr;
     gap: 0.5em;
 }
 

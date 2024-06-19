@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { SEATING_CHART } from "./seatingObject";
 
 export function Body() {
+  const searchRef = useRef(null);
   const [typeahead, setTypeahead] = useState("");
   const [isEng, setEnglish] = useState(true);
 
@@ -16,6 +17,16 @@ export function Body() {
     (person) => partyIDs.findIndex((partyID) => person.partyID === partyID) >= 0
   );
 
+  const handleScroll = (ref) => {
+    const element = ref.current;
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 50,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div>
       <button className="language-button" onClick={() => setEnglish(!isEng)}>
@@ -23,9 +34,14 @@ export function Body() {
       </button>
       <h1 className="heading">SEATING</h1>
       <h2 className="heading chinese-seat">座</h2>
-      <div>
+      <div ref={searchRef}>
         <input
-          className="search-bar"
+          className="search-bar list-container"
+          onClick={() => {
+            searchRef.current.scrollIntoView({
+              behavior: "smooth",
+            });
+          }}
           onChange={(event) => {
             console.log(event.target.value);
             setTypeahead(String(event.target.value).toUpperCase());
@@ -33,7 +49,7 @@ export function Body() {
           placeholder={isEng ? "Search" : "搜尋"}
         ></input>
       </div>
-      <div className="chart-table">
+      <div className="chart-table list-container">
         {people
           .sort((a, b) => a.lastName.localeCompare(b.lastName))
           .flatMap((person) => [
